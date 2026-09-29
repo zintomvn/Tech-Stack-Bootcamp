@@ -1,0 +1,13 @@
+# 1 - The spelled-out intro to language modeling: building makemore
+words
+
+Bigrams: 
+- Token: start (<S>) and end (<E>)
+- Counting in dictionary (table of tokens)
+
+Lúc đầu dùng dictionary --> chuyển qua dùng torch to save table as tensor (multi-dimensional array) # save effiently
+
+Note:
+- b.get(bigram, 0) nhớ phần này trong counting table -> dictionary (if this key does not exist -> init by 0)
+- 
+

@@ -40,17 +40,17 @@ Docker thường được dùng cho:
 
 ### 2.1. Đặc điểm nổi bật
 
-| Đặc điểm | Ý nghĩa |
-| --- | --- |
-| Đóng gói môi trường | Ứng dụng và dependency được đóng gói thành image. |
-| Chạy nhất quán | Container chạy giống nhau hơn giữa máy local, CI và server. |
-| Nhẹ hơn virtual machine | Container chia sẻ kernel của host nên khởi động nhanh và tốn ít tài nguyên hơn VM. |
-| Layer cache | Build image nhanh hơn nhờ tái sử dụng các layer không đổi. |
-| Registry | Image có thể được push/pull qua Docker Hub, GitHub Container Registry hoặc registry nội bộ. |
-| Port mapping | Cho phép ánh xạ port trong container ra máy host. |
-| Volume | Lưu dữ liệu bền vững ngoài vòng đời container. |
-| Network | Các container có thể giao tiếp với nhau qua mạng riêng. |
-| Docker Compose | Mô tả và chạy nhiều container bằng một file YAML. |
+| Đặc điểm                | Ý nghĩa                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------- |
+| Đóng gói môi trường     | Ứng dụng và dependency được đóng gói thành image.                                           |
+| Chạy nhất quán          | Container chạy giống nhau hơn giữa máy local, CI và server.                                 |
+| Nhẹ hơn virtual machine | Container chia sẻ kernel của host nên khởi động nhanh và tốn ít tài nguyên hơn VM.          |
+| Layer cache             | Build image nhanh hơn nhờ tái sử dụng các layer không đổi.                                  |
+| Registry                | Image có thể được push/pull qua Docker Hub, GitHub Container Registry hoặc registry nội bộ. |
+| Port mapping            | Cho phép ánh xạ port trong container ra máy host.                                           |
+| Volume                  | Lưu dữ liệu bền vững ngoài vòng đời container.                                              |
+| Network                 | Các container có thể giao tiếp với nhau qua mạng riêng.                                     |
+| Docker Compose          | Mô tả và chạy nhiều container bằng một file YAML.                                           |
 
 ## 3. Cơ sở lý thuyết
 
@@ -104,14 +104,14 @@ Image nên được build một cách có kiểm soát và có version tag rõ r
 
 Virtual machine và container đều giúp cô lập môi trường chạy, nhưng cách hoạt động khác nhau.
 
-| Tiêu chí | Virtual machine | Container |
-| --- | --- | --- |
-| Mức cô lập | Cô lập cả hệ điều hành khách | Cô lập process trên cùng kernel host |
-| Kernel | Mỗi VM có kernel riêng | Chia sẻ kernel với host |
-| Kích thước | Thường lớn hơn | Thường nhỏ hơn |
-| Khởi động | Chậm hơn | Nhanh hơn |
-| Tài nguyên | Tốn RAM/CPU hơn | Nhẹ hơn |
-| Use case | Cần cô lập mạnh hoặc chạy OS khác hoàn toàn | Đóng gói và chạy ứng dụng hiện đại |
+| Tiêu chí   | Virtual machine                             | Container                            |
+| ---------- | ------------------------------------------- | ------------------------------------ |
+| Mức cô lập | Cô lập cả hệ điều hành khách                | Cô lập process trên cùng kernel host |
+| Kernel     | Mỗi VM có kernel riêng                      | Chia sẻ kernel với host              |
+| Kích thước | Thường lớn hơn                              | Thường nhỏ hơn                       |
+| Khởi động  | Chậm hơn                                    | Nhanh hơn                            |
+| Tài nguyên | Tốn RAM/CPU hơn                             | Nhẹ hơn                              |
+| Use case   | Cần cô lập mạnh hoặc chạy OS khác hoàn toàn | Đóng gói và chạy ứng dụng hiện đại   |
 
 Container không thay thế VM trong mọi trường hợp. VM vẫn hữu ích khi cần cô lập ở mức hệ điều hành hoặc chạy nhiều kernel khác nhau. Docker phù hợp khi cần đóng gói ứng dụng và dependency để triển khai nhanh, nhẹ và nhất quán.
 
@@ -169,12 +169,12 @@ Trong dự án thực tế, CI/CD thường build image, gắn tag theo version 
 
 Docker Engine là thành phần chính giúp build, chạy và quản lý container. Nó gồm:
 
-| Thành phần | Vai trò |
-| --- | --- |
-| Docker CLI | Công cụ dòng lệnh như `docker run`, `docker build`, `docker ps`. |
-| Docker daemon | Dịch vụ nền quản lý image, container, network và volume. |
-| REST API | API để CLI hoặc công cụ khác giao tiếp với Docker daemon. |
-| Container runtime | Thành phần chạy container ở mức thấp hơn. |
+| Thành phần        | Vai trò                                                          |
+| ----------------- | ---------------------------------------------------------------- |
+| Docker CLI        | Công cụ dòng lệnh như `docker run`, `docker build`, `docker ps`. |
+| Docker daemon     | Dịch vụ nền quản lý image, container, network và volume.         |
+| REST API          | API để CLI hoặc công cụ khác giao tiếp với Docker daemon.        |
+| Container runtime | Thành phần chạy container ở mức thấp hơn.                        |
 
 Khi chạy lệnh:
 
@@ -188,10 +188,10 @@ Docker CLI gửi request đến Docker daemon. Docker daemon kiểm tra image, p
 
 Docker dựa trên các cơ chế của Linux để cô lập container.
 
-| Cơ chế | Ý nghĩa |
-| --- | --- |
-| Namespace | Cô lập process, network, mount, hostname, user và IPC. |
-| cgroups | Giới hạn và theo dõi tài nguyên như CPU, RAM, disk I/O. |
+| Cơ chế           | Ý nghĩa                                                                   |
+| ---------------- | ------------------------------------------------------------------------- |
+| Namespace        | Cô lập process, network, mount, hostname, user và IPC.                    |
+| cgroups          | Giới hạn và theo dõi tài nguyên như CPU, RAM, disk I/O.                   |
 | Union filesystem | Kết hợp nhiều layer thành filesystem nhìn như một hệ thống file duy nhất. |
 
 Nhờ namespace, process trong container có thể thấy danh sách process riêng, hostname riêng và network interface riêng. Nhờ cgroups, Docker có thể giới hạn container dùng tối đa bao nhiêu CPU hoặc RAM.
@@ -232,11 +232,11 @@ Nếu không map port, container vẫn có thể chạy, nhưng từ máy host k
 
 Container có writable layer riêng, nhưng layer này mất khi container bị xóa. Để lưu dữ liệu bền vững, Docker dùng volume hoặc bind mount.
 
-| Cách lưu dữ liệu | Ý nghĩa | Khi dùng |
-| --- | --- | --- |
-| Volume | Docker quản lý vị trí lưu trữ | Dữ liệu database, dữ liệu cần bền vững |
-| Bind mount | Gắn trực tiếp thư mục host vào container | Development, mount source code, config local |
-| tmpfs mount | Lưu trong RAM, không ghi xuống disk | Dữ liệu tạm, nhạy cảm, cache ngắn hạn |
+| Cách lưu dữ liệu | Ý nghĩa                                  | Khi dùng                                     |
+| ---------------- | ---------------------------------------- | -------------------------------------------- |
+| Volume           | Docker quản lý vị trí lưu trữ            | Dữ liệu database, dữ liệu cần bền vững       |
+| Bind mount       | Gắn trực tiếp thư mục host vào container | Development, mount source code, config local |
+| tmpfs mount      | Lưu trong RAM, không ghi xuống disk      | Dữ liệu tạm, nhạy cảm, cache ngắn hạn        |
 
 Ví dụ volume cho PostgreSQL:
 
@@ -298,18 +298,18 @@ Kiến trúc trên cho thấy người dùng thường làm việc qua Docker CL
 
 ### 4.2. Các thành phần quan trọng
 
-| Thành phần | Vai trò |
-| --- | --- |
-| Docker CLI | Công cụ để người dùng chạy lệnh Docker. |
-| Docker daemon | Dịch vụ nền quản lý vòng đời container và image. |
-| Dockerfile | File mô tả cách build image. |
-| Image | Gói bất biến chứa ứng dụng và dependency. |
-| Container | Instance đang chạy từ image. |
-| Registry | Nơi lưu và phân phối image. |
-| Volume | Nơi lưu dữ liệu bền vững ngoài vòng đời container. |
-| Network | Lớp mạng cho container giao tiếp. |
-| Docker Compose | Công cụ chạy nhiều container bằng file YAML. |
-| Build context | Tập file được gửi vào quá trình build image. |
+| Thành phần     | Vai trò                                            |
+| -------------- | -------------------------------------------------- |
+| Docker CLI     | Công cụ để người dùng chạy lệnh Docker.            |
+| Docker daemon  | Dịch vụ nền quản lý vòng đời container và image.   |
+| Dockerfile     | File mô tả cách build image.                       |
+| Image          | Gói bất biến chứa ứng dụng và dependency.          |
+| Container      | Instance đang chạy từ image.                       |
+| Registry       | Nơi lưu và phân phối image.                        |
+| Volume         | Nơi lưu dữ liệu bền vững ngoài vòng đời container. |
+| Network        | Lớp mạng cho container giao tiếp.                  |
+| Docker Compose | Công cụ chạy nhiều container bằng file YAML.       |
+| Build context  | Tập file được gửi vào quá trình build image.       |
 
 ### 4.3. Vòng đời image
 
@@ -448,20 +448,20 @@ CMD ["python", "main.py"]
 
 Một số instruction phổ biến:
 
-| Instruction | Ý nghĩa |
-| --- | --- |
-| `FROM` | Chọn base image. |
-| `WORKDIR` | Đặt thư mục làm việc trong image/container. |
-| `COPY` | Copy file từ build context vào image. |
-| `ADD` | Copy file, có thêm một số chức năng như giải nén tar hoặc tải URL, nhưng thường nên dùng `COPY` cho rõ ràng. |
-| `RUN` | Chạy lệnh trong quá trình build image. |
-| `ENV` | Khai báo biến môi trường. |
-| `ARG` | Khai báo biến dùng lúc build. |
-| `EXPOSE` | Ghi chú port ứng dụng lắng nghe. |
-| `CMD` | Lệnh mặc định khi container chạy. |
-| `ENTRYPOINT` | Lệnh chính cố định của container. |
-| `USER` | Chọn user chạy process. |
-| `HEALTHCHECK` | Khai báo cách kiểm tra container còn khỏe hay không. |
+| Instruction   | Ý nghĩa                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------ |
+| `FROM`        | Chọn base image.                                                                                             |
+| `WORKDIR`     | Đặt thư mục làm việc trong image/container.                                                                  |
+| `COPY`        | Copy file từ build context vào image.                                                                        |
+| `ADD`         | Copy file, có thêm một số chức năng như giải nén tar hoặc tải URL, nhưng thường nên dùng `COPY` cho rõ ràng. |
+| `RUN`         | Chạy lệnh trong quá trình build image.                                                                       |
+| `ENV`         | Khai báo biến môi trường.                                                                                    |
+| `ARG`         | Khai báo biến dùng lúc build.                                                                                |
+| `EXPOSE`      | Ghi chú port ứng dụng lắng nghe.                                                                             |
+| `CMD`         | Lệnh mặc định khi container chạy.                                                                            |
+| `ENTRYPOINT`  | Lệnh chính cố định của container.                                                                            |
+| `USER`        | Chọn user chạy process.                                                                                      |
+| `HEALTHCHECK` | Khai báo cách kiểm tra container còn khỏe hay không.                                                         |
 
 ### 6.2. Build context
 
@@ -641,13 +641,13 @@ Bind mount phù hợp cho development vì sửa code trên host thì container t
 
 Docker hỗ trợ nhiều loại network:
 
-| Network driver | Ý nghĩa |
-| --- | --- |
-| `bridge` | Network mặc định phổ biến cho container trên một host. |
-| `host` | Container dùng trực tiếp network của host, thường dùng trên Linux trong trường hợp đặc biệt. |
-| `none` | Container không có network. |
-| `overlay` | Network nhiều host, thường dùng với Docker Swarm. |
-| `macvlan` | Container xuất hiện như thiết bị riêng trong mạng vật lý. |
+| Network driver | Ý nghĩa                                                                                      |
+| -------------- | -------------------------------------------------------------------------------------------- |
+| `bridge`       | Network mặc định phổ biến cho container trên một host.                                       |
+| `host`         | Container dùng trực tiếp network của host, thường dùng trên Linux trong trường hợp đặc biệt. |
+| `none`         | Container không có network.                                                                  |
+| `overlay`      | Network nhiều host, thường dùng với Docker Swarm.                                            |
+| `macvlan`      | Container xuất hiện như thiết bị riêng trong mạng vật lý.                                    |
 
 Tạo network:
 
@@ -719,7 +719,13 @@ services:
   api:
     build: .
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')",
+        ]
       interval: 30s
       timeout: 3s
       retries: 3
@@ -1016,9 +1022,9 @@ Image cuối không cần chứa toàn bộ Go compiler và source build cache. 
 
 `CMD` và `ENTRYPOINT` đều liên quan đến lệnh chạy container, nhưng khác nhau.
 
-| Instruction | Ý nghĩa |
-| --- | --- |
-| `CMD` | Lệnh mặc định, dễ bị override khi `docker run image command`. |
+| Instruction  | Ý nghĩa                                                         |
+| ------------ | --------------------------------------------------------------- |
+| `CMD`        | Lệnh mặc định, dễ bị override khi `docker run image command`.   |
 | `ENTRYPOINT` | Lệnh chính cố định hơn, tham số truyền vào thường được nối sau. |
 
 Ví dụ `CMD`:
@@ -1133,18 +1139,18 @@ docker compose up
 
 ### 9.2. Các khái niệm trong Compose
 
-| Khái niệm | Ý nghĩa |
-| --- | --- |
-| `services` | Danh sách container/service cần chạy. |
-| `image` | Image dùng cho service. |
-| `build` | Cấu hình build image từ Dockerfile. |
-| `ports` | Port mapping từ host vào container. |
-| `environment` | Biến môi trường truyền vào container. |
-| `volumes` | Volume hoặc bind mount. |
-| `networks` | Network cho service. |
-| `depends_on` | Thứ tự khởi tạo service ở mức container. |
-| `healthcheck` | Kiểm tra trạng thái service. |
-| `restart` | Chính sách restart container. |
+| Khái niệm     | Ý nghĩa                                  |
+| ------------- | ---------------------------------------- |
+| `services`    | Danh sách container/service cần chạy.    |
+| `image`       | Image dùng cho service.                  |
+| `build`       | Cấu hình build image từ Dockerfile.      |
+| `ports`       | Port mapping từ host vào container.      |
+| `environment` | Biến môi trường truyền vào container.    |
+| `volumes`     | Volume hoặc bind mount.                  |
+| `networks`    | Network cho service.                     |
+| `depends_on`  | Thứ tự khởi tạo service ở mức container. |
+| `healthcheck` | Kiểm tra trạng thái service.             |
+| `restart`     | Chính sách restart container.            |
 
 ### 9.3. Ví dụ Compose với FastAPI và PostgreSQL
 
@@ -1347,12 +1353,12 @@ Docker giúp đóng gói ứng dụng, nhưng không tự giải quyết toàn b
 
 Base image ảnh hưởng đến kích thước, bảo mật và khả năng debug.
 
-| Base image | Đặc điểm |
-| --- | --- |
-| `ubuntu`, `debian` | Dễ dùng, nhiều package, kích thước lớn hơn. |
-| `slim` | Nhỏ hơn bản đầy đủ, vẫn tương đối dễ dùng. |
-| `alpine` | Rất nhỏ, dùng musl libc, đôi khi gặp lỗi compatibility với một số dependency. |
-| `distroless` | Rất nhỏ, ít công cụ shell/debug, phù hợp production khi đã ổn định. |
+| Base image         | Đặc điểm                                                                      |
+| ------------------ | ----------------------------------------------------------------------------- |
+| `ubuntu`, `debian` | Dễ dùng, nhiều package, kích thước lớn hơn.                                   |
+| `slim`             | Nhỏ hơn bản đầy đủ, vẫn tương đối dễ dùng.                                    |
+| `alpine`           | Rất nhỏ, dùng musl libc, đôi khi gặp lỗi compatibility với một số dependency. |
+| `distroless`       | Rất nhỏ, ít công cụ shell/debug, phù hợp production khi đã ổn định.           |
 
 Khi học, dùng image chính thức như `python:3.12-slim`, `node:22-slim`, `postgres:16` là lựa chọn dễ tiếp cận.
 
@@ -1627,33 +1633,33 @@ trừ khi thật sự cần và đã đánh giá rủi ro.
 
 ### 15.1. Docker và virtual machine
 
-| Tiêu chí | Docker container | Virtual machine |
-| --- | --- | --- |
-| Khởi động | Nhanh | Chậm hơn |
-| Kích thước | Nhỏ hơn | Lớn hơn |
-| Kernel | Chia sẻ kernel host | Có kernel riêng |
-| Cô lập | Tốt ở mức process | Mạnh hơn ở mức OS |
-| Phù hợp | Đóng gói ứng dụng, microservices, CI/CD | Chạy OS riêng, cô lập mạnh, lab hệ điều hành |
+| Tiêu chí   | Docker container                        | Virtual machine                              |
+| ---------- | --------------------------------------- | -------------------------------------------- |
+| Khởi động  | Nhanh                                   | Chậm hơn                                     |
+| Kích thước | Nhỏ hơn                                 | Lớn hơn                                      |
+| Kernel     | Chia sẻ kernel host                     | Có kernel riêng                              |
+| Cô lập     | Tốt ở mức process                       | Mạnh hơn ở mức OS                            |
+| Phù hợp    | Đóng gói ứng dụng, microservices, CI/CD | Chạy OS riêng, cô lập mạnh, lab hệ điều hành |
 
 ### 15.2. Docker và Docker Compose
 
-| Tiêu chí | Docker | Docker Compose |
-| --- | --- | --- |
-| Mục đích | Build và chạy container đơn lẻ hoặc thao tác thủ công | Định nghĩa và chạy nhiều service |
-| Cấu hình | Qua lệnh CLI | Qua file YAML |
-| Phù hợp | Test nhanh một image/container | Chạy stack backend + database + cache |
+| Tiêu chí | Docker                                                | Docker Compose                        |
+| -------- | ----------------------------------------------------- | ------------------------------------- |
+| Mục đích | Build và chạy container đơn lẻ hoặc thao tác thủ công | Định nghĩa và chạy nhiều service      |
+| Cấu hình | Qua lệnh CLI                                          | Qua file YAML                         |
+| Phù hợp  | Test nhanh một image/container                        | Chạy stack backend + database + cache |
 
 Docker Compose không thay thế Docker Engine. Compose là công cụ dùng Docker Engine để tạo container, network và volume theo cấu hình.
 
 ### 15.3. Docker và Kubernetes
 
-| Tiêu chí | Docker/Compose | Kubernetes |
-| --- | --- | --- |
-| Phạm vi | Một máy hoặc môi trường nhỏ | Cluster nhiều node |
-| Độ phức tạp | Dễ học hơn | Phức tạp hơn |
-| Tự phục hồi | Hạn chế hơn | Mạnh hơn |
-| Scaling | Thủ công hoặc đơn giản | Tự động và linh hoạt hơn |
-| Use case | Development, staging nhỏ, server đơn | Production lớn, microservices, cloud-native |
+| Tiêu chí    | Docker/Compose                       | Kubernetes                                  |
+| ----------- | ------------------------------------ | ------------------------------------------- |
+| Phạm vi     | Một máy hoặc môi trường nhỏ          | Cluster nhiều node                          |
+| Độ phức tạp | Dễ học hơn                           | Phức tạp hơn                                |
+| Tự phục hồi | Hạn chế hơn                          | Mạnh hơn                                    |
+| Scaling     | Thủ công hoặc đơn giản               | Tự động và linh hoạt hơn                    |
+| Use case    | Development, staging nhỏ, server đơn | Production lớn, microservices, cloud-native |
 
 Docker giúp hiểu container. Kubernetes giúp điều phối container ở quy mô lớn.
 
@@ -1787,3 +1793,51 @@ Khi dùng Docker đúng cách, dự án dễ chạy lại hơn, môi trường n
 - Docker Build: https://docs.docker.com/build/
 - Docker Hub: https://hub.docker.com/
 - Open Container Initiative: https://opencontainers.org/
+
+## Popular commands in docker
+
+### IMAGE
+
+```bash
+docker images
+docker pull <image>
+docker build -t <name> .
+docker rmi <image>
+```
+
+### CONTAINER
+
+```bash
+docker ps
+docker ps -a
+
+docker run <image>
+
+docker stop <container>
+docker start <container>
+docker restart <container>
+
+docker rm <container>
+```
+
+### DEBUG
+
+```bash
+docker logs -f <container>
+docker exec -it <container> bash
+```
+
+### COMPOSE
+
+```bash
+docker compose up -d
+docker compose up -d --build
+
+docker compose ps
+
+docker compose logs -f
+
+docker compose exec <service> bash
+
+docker compose down
+```

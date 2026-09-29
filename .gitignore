@@ -136,6 +136,10 @@ celerybeat.pid
 *.aof
 *.pid
 
+# Milvus
+src/vector database/
+notebooks/vector database/
+
 # RabbitMQ
 mnesia/
 rabbitmq/
